@@ -1,0 +1,4 @@
+kifimenu.settings:
+  path: '/admin/kifimenu/settings'
+  defaults:
+    _title: 'Menu Settings'

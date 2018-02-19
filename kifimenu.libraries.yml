@@ -1,0 +1,9 @@
+dropdown:
+  css:
+    component:
+      public/css/dropdown.css: {}
+  js:
+    public/js/dropdown.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

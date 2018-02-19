@@ -1,0 +1,16 @@
+.kifimenu-dropdown .menu-item > .menu {
+  display: none; }
+.kifimenu-dropdown .menu-item.expanded > .menu {
+  display: block; }
+.kifimenu-dropdown .menu-toggle {
+  background: transparent;
+  border-width: 0;
+  padding: 0;
+  color: black;
+  cursor: pointer;
+  padding-left: 5px;
+  font-family: monospace; }
+.kifimenu-dropdown .menu-toggle:after {
+  content: "+"; }
+
+/*# sourceMappingURL=dropdown.css.map */

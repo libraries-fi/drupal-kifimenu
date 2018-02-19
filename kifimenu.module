@@ -1,0 +1,31 @@
+<?php
+
+function kifimenu_theme() {
+  return [
+    'kifimenu' => [
+      'variables' => [
+        'menu' => null,
+        'classes' => '',
+        'id' => '',
+      ]
+    ],
+  ];
+}
+
+function kifimenu_preprocess_menu(array &$variables) {
+  foreach ($variables['items'] as $item) {
+    if (!empty($item['below'])) {
+      $classes = $item['attributes']['class'] ?: [];
+      $classes[] = 'menu-item--tree';
+      $item['attributes']['class'] = $classes;
+    }
+  }
+}
+
+function kifimenu_theme_suggestions_kifimenu(array $variables) {
+  $suggestions = [];
+  if (!empty($variables['id'])) {
+    $suggestions[] = $variables['theme_hook_original'] .= '__' . $variables['id'];
+  }
+  return $suggestions;
+}

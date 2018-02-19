@@ -1,0 +1,8 @@
+services:
+  kifimenu.breadcrumb.default:
+    class: 'Drupal\kifimenu\Breadcrumb\MenuBasedBreadcrumbBuilder'
+    arguments: ['@menu.active_trail', '@plugin.manager.menu.link', '@kifimenu.block_configured_menu']
+    tags:
+      - { name: breadcrumb_builder, priority: 2000 }
+  kifimenu.block_configured_menu:
+    class: 'Drupal\kifimenu\BlockConfiguredMenu'
