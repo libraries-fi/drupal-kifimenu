@@ -184,6 +184,11 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
     ];
   }
 
+  public function getCacheContexts() {
+    $contexts = ['route.menu_active_trails:' . $this->configuration['menu_name']];
+    return Cache::mergeContexts(parent::getCacheContexts(), $contexts);
+  }
+
   protected function unsetExpandedClass(&$links, $expanded = []) {
     if (empty($links)) {
       return;
