@@ -1,0 +1,6 @@
+{
+  "name": "libraries-fi/kifimenu",
+  "description": "Enhanced menu implementation.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+"
+}
