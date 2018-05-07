@@ -4,6 +4,7 @@ namespace Drupal\kifimenu\Plugin\Block;
 
 use Drupal;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -181,6 +182,8 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
       'menu_name' => 'main',
       'expand_items' => self::EXPAND_NONE,
       'dropdown' => 0,
+      'wrapper_classes' => '',
+      'wrapper_id' => ''
     ];
   }
 
