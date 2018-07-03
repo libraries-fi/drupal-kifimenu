@@ -22,6 +22,8 @@ class MenuDeepestActiveTrail extends MenuActiveTrail {
     }
 
     if (!$found) {
+      // Try to resolve to a parent link with nodes etc.
+
       $current_path = \Drupal::service('request_stack')->getCurrentRequest()->getPathInfo();
       $last_slash = strrpos($current_path, '/');
       $parent_path = substr($current_path, 0, $last_slash);
