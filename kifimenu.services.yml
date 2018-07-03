@@ -6,3 +6,8 @@ services:
       - { name: breadcrumb_builder, priority: 2000 }
   kifimenu.block_configured_menu:
     class: 'Drupal\kifimenu\BlockConfiguredMenu'
+  kifimenu.deepest_active_trail:
+    class: 'Drupal\kifimenu\MenuDeepestActiveTrail'
+    arguments: ['@plugin.manager.menu.link', '@current_route_match', '@cache.menu', '@lock']
+    tags:
+      - { name: needs_destruction }

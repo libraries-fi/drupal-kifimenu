@@ -7,6 +7,8 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Menu\MenuActiveTrailInterface;
+use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -34,12 +36,12 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $plugin_id,
       $plugin_definition,
       $container->get('entity_type.manager')->getStorage('menu'),
-      $container->get('menu.active_trail'),
+      $container->get('kifimenu.deepest_active_trail'),
       $container->get('menu.link_tree')
     );
   }
 
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityStorageInterface $menu_storage, $menu_trail, $menu_tree) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityStorageInterface $menu_storage, MenuActiveTrailInterface $menu_trail, MenuLinkTreeInterface $menu_tree) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->menuStorage = $menu_storage;
     $this->menuTrail = $menu_trail;
