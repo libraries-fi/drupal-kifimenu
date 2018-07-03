@@ -51,7 +51,6 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function build() {
     $full_trail = array_values($this->menuTrail->getActiveTrailIds($this->configuration['menu_name']));
     $trail = array_slice($full_trail, $this->configuration['depth_min']);
-    // $trail = array_slice($full_trail, 0);
 
     $params = $this->menuTree->getCurrentRouteMenuTreeParameters($this->configuration['menu_name']);
 
