@@ -18,7 +18,7 @@ class MenuDeepestActiveTrail extends MenuActiveTrail {
     $route_name = $this->routeMatch->getRouteName();
 
     if ($route_name) {
-      $found = $this->resolveRoute($route_name);
+      $found = $this->resolveRoute($route_name, $menu_name);
     }
 
     if (!$found) {
@@ -30,14 +30,14 @@ class MenuDeepestActiveTrail extends MenuActiveTrail {
       $url = \Drupal::service('path.validator')->getUrlIfValid($parent_path);
 
       if ($url) {
-        $found = $this->resolveRoute($url->getRouteName(), $url);
+        $found = $this->resolveRoute($url->getRouteName(), $menu_name, $url);
       }
     }
 
     return $found;
   }
 
-  protected function resolveRoute($route_name, Url $override = NULL) {
+  protected function resolveRoute($route_name, $menu_name, Url $override = NULL) {
     $found = NULL;
     $route_parameters = $override ? $override->getRouteParameters() : $this->routeMatch->getRawParameters()->all();
     $links = $this->menuLinkManager->loadLinksByRoute($route_name, $route_parameters, $menu_name);
